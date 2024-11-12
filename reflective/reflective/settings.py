@@ -54,6 +54,14 @@ MIDDLEWARE = [
 
 CORS_ALLOWED_ORGIINS = ["http:localhost:3000"]
 
+STATIC_URL = '/static/'
+
+STATICFILES_DIRS = [
+    BASE_DIR / "static",  # For global static files
+]
+
+STATIC_ROOT = BASE_DIR / "staticfiles"
+
 ROOT_URLCONF = 'reflective.urls'
 
 TEMPLATES = [

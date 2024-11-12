@@ -1,0 +1,152 @@
+@import url('https://fonts.googleapis.com/css2?family=Geist:wght@100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
+body {
+    font-family: "Montserrat", sans-serif;
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
+}
+
+/* -----------HOME PAGE----------- */
+.navbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.element {
+    text-decoration: none;
+    padding: 10px;
+    color: black;
+    transition: background-color 1s;
+}
+
+.element:hover {
+    background-color: black;
+    color: white;
+    border-radius: 6px;
+}
+
+.logo {
+    margin-top: 10px;
+    width: 100px;
+    height: 100px;
+    mix-blend-mode: multiply;
+}
+
+.nav-right {
+    margin-top: 50px;
+    margin-right: 90px;
+}
+
+.btn {
+    border: none;
+    background: none;
+}
+
+.motive-text {
+    opacity: 0;
+    transform: translateX(-100px); 
+    transition: opacity 1.5s ease-in, transform 1.5s ease-in;
+    text-align: center;
+    margin-top: 100px;
+    padding-left: 100px;
+    padding-right: 100px;
+    margin-left: 100px;
+    margin-right: 100px;
+}
+
+.motive-text.show {
+    opacity: 1;
+    transform: translateX(0); 
+}
+
+.heading {
+    font-size: 25px;
+}
+
+.motive-text-para:hover {
+    color: #8a2be2;
+    background: linear-gradient(to right, #7b4bf8, #f85c95); 
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* --------Carousel-------- */
+.testimonials {
+    margin-top: 90px;
+  
+}
+.carousel slide
+{
+    background: transparent;
+}
+.carousel-review {
+    padding: 20px;
+    text-align: center;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.carousel-review h5 {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+  
+.carousel-review p {
+    font-size: 1rem;
+    color: #555;
+}
+
+.test-heading {
+    text-align: center;
+}
+
+/* --------Survey-------- */
+.survey {
+    margin-top: 90px;
+}
+
+.s-button {
+    margin-top: 40px;
+    text-decoration: none;
+    color: black;
+    margin-left: 600px;
+    font-size: 1.5rem;
+}
+
+.s-button:hover {
+    background-color: black;
+    color: white;
+    border-radius: 6px;
+}
+
+.survey-heading {
+    text-align: center;
+}
+
+.ss-button {
+    padding-top: 50px;
+}
+
+/* --------Footer-------- */
+.row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.footer {
+    margin-top: 50px;
+    width: 100%; /* Full width without causing horizontal scroll */
+    background-color: black;
+    color: white;
+    padding: 20px 100px; /* Adjust inner padding as needed */
+    box-sizing: border-box; /* Ensures padding is within width */
+}
+
+.gpstore, .apstore {
+    width: 90px;
+    height: 50px;
+}

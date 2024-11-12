@@ -1,0 +1,135 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <title>{{ title }}</title>
+</head>
+
+<body>
+    <div class="container">
+        
+        <!-- Navbar -->
+        <nav class="navbar">
+            <div class="navbar-left">
+                <a href="#" class="navbar-brand">
+                    <img src="{% static 'images/Reflective.png' %}" alt="Logo" class="logo">
+                </a>
+            </div>
+            <div class="navbar-right">
+                <div class="nav-links">
+                    <a href="#s-container" class="nav-link">Home</a>
+                    <a href="{% url 'about' %}" class="nav-link">About</a>
+                    <a href="#testimonials" class="nav-link">Testimonials</a>
+                    <a href="{% url 'create_survey' %}" class="nav-link">Create Survey</a>
+                    <a href="{% url 'login' %}" class="nav-link">Login/Register</a>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <div id="s-container" class="main-content">
+            
+            <!-- Header Section -->
+            <header class="header-text">
+                <h2 class="heading">Empowering Product Owners with Genuine User Insights</h2>
+                <p>{{ motive_text }}</p>
+            </header>
+
+            <!-- Testimonials Carousel -->
+            <section id="testimonials" class="testimonials">
+                <h2>Testimonials</h2>
+                
+                <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-indicators">
+                        {% for testimonial in testimonials %}
+                            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="{{ forloop.counter0 }}" class="{% if forloop.first %}active{% endif %}" aria-label="Slide {{ forloop.counter }}"></button>
+                        {% endfor %}
+                    </div>
+                    <div class="carousel-inner">
+                        {% for testimonial in testimonials %}
+                            <div class="carousel-item {% if forloop.first %}active{% endif %}">
+                                <div class="carousel-content">
+                                    <h5>{{ testimonial.name }} – {{ testimonial.title }}</h5>
+                                    <p>{{ testimonial.text }}</p>
+                                    <div class="rating">
+                                        {% for star in range %}
+                                            <i class="fa {% if forloop.counter <= testimonial.rating %}fa-star{% else %}fa-star-o{% endif %}"></i>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+            </section>
+
+            <!-- Survey Section -->
+            <section class="survey-section">
+                <div class="survey-button">
+                    <h2>Make A Survey</h2>
+                    <a href="{% url 'create_survey' %}" class="btn btn-primary">Click Here</a>
+                </div>
+            </section>
+
+            <!-- Footer -->
+            <footer class="footer mt-5">
+                <div class="row">
+                    <div class="col">
+                        <h3>Download Our App</h3>
+                        <p>Download Our App for Android and iOS mobile phones</p>
+                        <div>
+                            <img src="{% static 'images/google_play.png' %}" alt="Google Play Store" class="app-store-img">
+                            <img src="{% static 'images/app_store.png' %}" alt="App Store" class="app-store-img">
+                        </div>
+                    </div>
+                    <div class="col">
+                        <img src="{% static 'images/logo.png' %}" alt="Logo" class="footer-logo">
+                        <p>{{ footer_text }}</p>
+                    </div>
+                    <div class="col">
+                        <h3>Useful Links</h3>
+                        {% comment %} <ul class="footer-list">
+                            <li><a href="{% url 'coupons' %}">Coupons</a></li>
+                            <li><a href="{% url 'blog' %}">Blog Post</a></li>
+                            <li><a href="{% url 'return_policy' %}">Return Policy</a></li>
+                            <li><a href="{% url 'affiliate' %}">Join Affiliate</a></li>
+                        </ul> {% endcomment %}
+                    </div>
+                    <div class="col">
+                        <h3>Follow Us On</h3>
+                        <ul class="footer-list">
+                            <li><a href="https://facebook.com">Facebook</a></li>
+                            <li><a href="https://twitter.com">Twitter</a></li>
+                            <li><a href="https://instagram.com">Instagram</a></li>
+                            <li><a href="https://youtube.com">YouTube</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </footer>
+
+        </div>
+    </div>
+
+    <!-- Bootstrap JS and Custom JS -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+    <script src="{% static 'js/script.js' %}"></script>
+</body>
+</html>

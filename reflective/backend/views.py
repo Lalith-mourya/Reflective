@@ -7,6 +7,14 @@ from django.contrib import messages
 from django.views.decorators.csrf import csrf_protect
 
 
+def about(request):
+    return render(request, 'backend/about.html')
+
+
+def create_survey(request):
+    return render(request, 'backend/create_survey.html')
+
+
 def home_view(request):
     return render(request, 'backend/home.html')
 
